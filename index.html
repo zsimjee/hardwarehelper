@@ -1,171 +1,148 @@
 <!DOCTYPE html>
+
 <style>
-	h1{
-		text-shadow: -1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;
-	}
-	h3{
-		text-shadow: -1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;
-	}
-	.row_center, .extras h5{
-		text-shadow: -1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;	
-	}
-	.result{
-	  display:inline-block;
-	  display: flex;
-	  flex-wrap: wrap;
-	  justify-content: left;
-	  left: 30%;
-	  margin-right: 50%;
-	  position: relative
-	}
-	.brand-logo{
-		margin-left: 35%;
-	}
-	.background1{
+  h1{
+    text-shadow: -1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;
+  }
+
+  .background1{
+    background-image: url("img/background.jpg");
+    background-color: #cccccc;
+  }
+
+  .background2{
+    background-image: url("img/background2.jpg");
+    background-repeat: no-repeat;
+	background-size: 100%;
+    background-color: #cccccc;
+  }
+
+  .background3{
 		background-image: url("img/background.jpg");
 		background-color: #cccccc;
-	}
-	.background2{
-		background-image: url("img/background2.jpg");
-		background-repeat: no-repeat;
-		background-size: 100%;
-		background-color: #cccccc;
-	}
-	.background3{
-		background-image: url("img/background.jpg");
-		background-color: #cccccc;
-	}
-	.tooltipped{
-    	color:black;
-	}
+  }
+
+  .text-black{
+  	color: #000000;
+  }
+
+  .text-grey{
+    color: #d3d3d3;
+  }
 </style>
+
+
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="icon" href="img/logo-small.png" />
   <title>Hardware Helper</title>
-
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 </head>
 <body>
- <div class="background1">
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <h1 class="header center white-text text-lighten-2"><img class="circle responsive-img" src="img/logo.png">
-        <br></br>
-        	Hardware Helper
-        </h1>
-        <div class="row_center">
-          <h5 class="header center silver-text text-lighten-2">A TOOL TO HELP WITH THE MATH BEHIND FITTING CABINETS
-          	<br></br>
-      	  </h5>
-        </div>
-      </div>
-    </div>
-    <!-- <div class="parallax"><img src="background.jpg" alt="Unsplashed background img 1"></div> -->
-  </div>
- </div>
 
-
-  <div class="container">
-    <div class="section">
-
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-          	<br></br>
-          	<br></br>
-            <h5 class="center">Enter the number of inches you need to fill:  
-            	<a class="tooltipped" data-html="true" data-position="right" data-delay="50" target="_blank" href="img/measure-wall.png" data-tooltip="Measure the empty wall you want to add cabinets to!<br/>Click Here for a visual">
-            		<i class="tiny material-icons">help</i>
-            	</a>
-            </h5>
-            <input placeholder="Length in inches" class="inchesToFill" type="text" id="inches">
-			<br/>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-          	<br></br>
-          	<br></br>
-            <h5 class="center">Enter cabinet sizes, in inches, seperated by commas:</h5>
-            <input placeholder="Ex: 24,30,36,48,60" class="cabSizes" type="text" id="sizes">
-			<h6 class="center"><input type="button" id="defaults" value="Use defaults"></h5>
-			<br/>
-			<p></p>
-			<h6 class="center"><input type="button" class="submit" id="submit" value="Submit"></h6>
-			<br/>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-          	<br></br>
-          	<br></br>
-            <h5 class="center">Result</h5>
-            <br/>
-			<span id="result" class="result"></span>
-			</body>
-            </div>
-        </div>
-      </div>
-
-    </div>
+  <div class="background1 text-center">
+    <br>
+    </br>
+    <img class="circle responsive-img" src="img/logo.png">
+    <h1 class="display-3 text-white">Hardware Helper</h1>
+    <h5 class="text-white">A TOOL TO HELP WITH THE MATH BEHIND FITTING CABINETS</h5> 
+    <br>
+    </br>
   </div>
 
-  <div class="background2">
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h3 class="header center white-text text-lighten-2">Store</h3>
-        </div>
+<br>
+</br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h4 class="text-center">Enter the number of inches you need to fill:
+      	<a class="text-black" href="img/measure-wall.png" data-toggle="tooltip" target="_blank" data-placement="top" title="Measure the empty wall you want to add cabinets to!">
+        	<i class="fa fa-question-circle"></i>
+    	</a>
+      </h4>
+	  <div class="input-group mb-3">
+		<input type="text" class="form-control" placeholder="Length in inches" class="inchesToFill" id="inches">
+		<div class="input-group-append">
+			<span class="input-group-text" id="basic-addon2">inches</span>
+		</div>
+	  </div>
+    </div>
+    <div class="col-sm-4">
+      <h4 class="text-center">Enter cabinet sizes, in inches, seperated by commas:</h4>
+      <div class="input-group mb-3">
+		<input type="text" class="form-control" placeholder="Ex: 24,30,36,48,60" class="cabSizes" id="sizes">
+		<div class="input-group-append">
+			<span class="input-group-text" id="basic-addon2">inches</span>
+		</div>
+	  </div>
+    <h6 class="text-center"><button type="button" id="defaults" class="btn btn-outline-primary">Use defaults</button></h6>
+	  <h6 class="text-center"><button type="button" class="btn btn-primary" id="submit">Submit</button></h6>
+    </div>
+    <div class="col-sm-4">
+      <h3 class="text-center">Result</h3> 
+      <div class="container text-center">
+        <h6 class="text-grey">_________________________</h6>
+        <span id="result" class="result"></span>
       </div>
     </div>
-    <!-- <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div> -->
   </div>
 </div>
 
-  <div class="container">
-    <div class="section">
+<br>
+</br>
+<br>
+</br>
+<br>
+</br>
 
-      <div class="row">
-        <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Buy Items Here</h4>
-        </div>
-      </div>
+<div class="background2 text-center">
+    <br>
+    </br>
+    <br>
+    </br>
+    <br>
+    </br>
+    <h1 class="display-3 text-white">Store</h1>
+    <br>
+    </br>
+    <br>
+    </br>
+    <br>
+    </br>
+</div>
 
-    </div>
-  </div>
+<br>
+</br>
+<div class="container">
+      <h2 class="text-center">Buy Items Here</h2>
+</div>
+<br>
+</br>
 
- <div class="background3">
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h3 class="header col s12 light">Contact Us</h3>
-        </div>
-      </div>
-    </div>
-    <!-- <div class="parallax"><img src="background.jpg" alt="Unsplashed background img 3"></div> -->
-  </div>
- </div>
+<div class="background3 text-center">
+    <br>
+    </br>
+    <br>
+    </br>
+    <br>
+    </br>
+    <h1 class="display-3 text-white">Contact Us</h1>
+    <br>
+    </br>
+    <br>
+    </br>
+    <br>
+    </br>
+</div>
 
-
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-
-  </body>
+</body>
 </html>
 
 <script>
