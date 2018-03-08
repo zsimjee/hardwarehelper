@@ -63,7 +63,7 @@
   <div class="row">
     <div class="col-sm-4">
       <h4 class="text-center">Enter the number of inches you need to fill:
-      	<a class="text-black" href="img/measure-wall.png" data-toggle="tooltip" target="_blank" data-placement="top" title="Measure the empty wall you want to add cabinets to!">
+      	<a class="text-black" href="img/measure-wall.png" data-toggle="tooltip" target="_blank" data-placement="right" class="tooltip" title="Measure the empty wall you want to add cabinets to!">
         	<i class="fa fa-question-circle"></i>
     	</a>
       </h4>
@@ -146,12 +146,13 @@
 </html>
 
 <script>
-	$(document).ready(function(){
-    $('.tooltipped').tooltip({delay: 50});
-  });
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
 
 $(document).on('click touchstart', '#submit', function() {
-  onSubmitClick();
+	setLoader();
+	setTimeout(onSubmitClick, 100);
 });
 
 $(document).on('click touchstart', '#defaults', function() {
@@ -197,6 +198,11 @@ function compute(target, sizes) {
 
 function setResult(result) {
   $("#result").html(result);
+}
+
+function setLoader(){
+	var output = '<br></br><i class="fas fa-sync fa-spin fa-3x"></i>'; 
+	$("#result").html(output);
 }
 
 function parseCabinetSizes() {
