@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<style>
+  h1{
+    text-shadow: -1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;
+  }
+
+  .background1{
+    background-image: url("img/background.jpg");
+    background-color: #cccccc;
+  }
+
+  .background2{
+    background-image: url("img/background2.jpg");
+    background-repeat: no-repeat;
+	background-size: 100%;
+    background-color: #cccccc;
+  }
+
+  .background3{
+		background-image: url("img/background.jpg");
+		background-color: #cccccc;
+  }
+
+  .text-black{
+  	color: #000000;
+  }
+
+  .text-grey{
+    color: #d3d3d3;
+  }
+</style>
+
+
+<html lang="en">
+<head>
+  <link rel="icon" href="img/logo-small.png" />
+  <title>Hardware Helper</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+</head>
+<body>
+
+  <div class="background1 text-center">
+    <br>
+    </br>
+    <img class="circle responsive-img" src="img/logo.png">
+    <h1 class="display-3 text-white">Hardware Helper</h1>
+    <h5 class="text-white">A TOOL TO HELP WITH THE MATH BEHIND FITTING CABINETS</h5> 
+    <br>
+    </br>
+  </div>
+
+<br>
+</br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h4 class="text-center">Enter the number of inches you need to fill:
+      	<a class="text-black" href="img/measure-wall.png" data-toggle="tooltip" target="_blank" data-placement="right" class="tooltip" title="Measure the empty wall you want to add cabinets to!">
+        	<i class="fa fa-question-circle"></i>
+    	</a>
+      </h4>
+	  <div class="input-group mb-3">
+		<input type="text" class="form-control" placeholder="Length in inches" class="inchesToFill" id="inches">
+		<div class="input-group-append">
+			<span class="input-group-text" id="basic-addon2">inches</span>
+		</div>
+	  </div>
+    </div>
+    <div class="col-sm-4">
+      <h4 class="text-center">Enter cabinet sizes, in inches, seperated by commas:</h4>
+      <div class="input-group mb-3">
+		<input type="text" class="form-control" placeholder="Ex: 24,30,36,48,60" class="cabSizes" id="sizes">
+		<div class="input-group-append">
+			<span class="input-group-text" id="basic-addon2">inches</span>
+		</div>
+	  </div>
+    <h6 class="text-center"><button type="button" id="defaults" class="btn btn-outline-primary">Use defaults</button></h6>
+	  <h6 class="text-center"><button type="button" class="btn btn-primary" id="submit">Submit</button></h6>
+    </div>
+    <div class="col-sm-4">
+      <h3 class="text-center">Result</h3> 
+      <div class="container text-center">
+        <h6 class="text-grey">_________________________</h6>
+        <span id="result" class="result"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+</br>
+<br>
+</br>
+<br>
+</br>
+
+<div class="background2 text-center">
+    <br>
+    </br>
+    <br>
+    </br>
+    <br>
+    </br>
+    <h1 class="display-3 text-white">Store</h1>
+    <br>
+    </br>
+    <br>
+    </br>
+    <br>
+    </br>
+</div>
+
+<br>
+</br>
+<div class="container">
+      <h2 class="text-center">Buy Items Here</h2>
+</div>
+<br>
+</br>
+
+<div class="background3 text-center">
+    <br>
+    </br>
+    <br>
+    </br>
+    <br>
+    </br>
+    <h1 class="display-3 text-white">Contact Us</h1>
+    <br>
+    </br>
+    <br>
+    </br>
+    <br>
+    </br>
+</div>
+
+</body>
+</html>
+
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+
+$(document).on('click touchstart', '#submit', function() {
+	setLoader();
+	setTimeout(onSubmitClick, 100);
+});
+
+$(document).on('click touchstart', '#defaults', function() {
+  populateDefaults();
+});
+
+function onSubmitClick(){
+  var result = compute($("#inches").val(), parseCabinetSizes());
+  var resultList = result.set.sort(predicateBy('w'));
+
+  console.log(result);
+  var currVal = resultList[0]['w'];
+  var numOfVal = 0;
+  var resultString = "<br/>";
+  var maxVal = 0;
+
+  for (var i = 0; i < resultList.length; i++) {
+    if ( currVal == resultList[i]['w']) {
+      numOfVal++;
+    } else {
+      resultString += numOfVal + " x " + currVal + '"<br/>';
+      numOfVal = 1;
+      currVal = resultList[i]['w'];
+    }
+
+    maxVal += parseInt(currVal, 10);
+  }
+  resultString += numOfVal + " x " + currVal + '"<br/>';
+
+  setResult("Max size you can fill: " + maxVal + '"<br/>Use the following combination' + resultString);
+}
+
+function compute(target, sizes) {
+  var sizesMap = [];
+  for (var i = 0; i < 100; i++) {
+    for (var j = 0; j < sizes.length; j++) {
+      sizesMap.push({w:sizes[j], b:sizes[j]});
+    }
+  }
+
+  return knapsack(sizesMap, target);
+}
+
+function setResult(result) {
+  $("#result").html(result);
+}
+
+function setLoader(){
+	var output = '<br></br><i class="fas fa-sync fa-spin fa-3x"></i>'; 
+	$("#result").html(output);
+}
+
+function parseCabinetSizes() {
+  var sizesText = $("#sizes").val();
+  var sizesList = sizesText.split(",");
+  for (var i = 0; i < sizesList.length; i++) {
+    sizesList[i] = parseInt(sizesList[i], 10);
+  }
+
+  return sizesList;
+}
+
+function populateDefaults() {
+  $("#sizes").val("24,30,36,48,60");
+}
+
+//Knapsack algorithm
+//==================
+// wikipedia: [Knapsack (0/1)](http://en.wikipedia.org/wiki/Knapsack_problem#0.2F1_Knapsack_Problem)
+// Given a set `[{weight:Number, benefit:Number}]` and a capacity,
+// find the maximum value possible while keeping the weight below
+// or equal to the capacity
+// **params**:  
+//    `capacity`  : Number,  
+//    `items`     : [{w:Number, b:Number}]  
+// **returns**:  
+//    An object containing `maxValue` and `set`
+function knapsack(items, capacity) {
+  var idxItem   = 0,
+      idxWeight = 0,
+      oldMax    = 0,
+      newMax    = 0,
+      numItems  = items.length,
+      weightMatrix  = new Array(numItems+1),
+      keepMatrix    = new Array(numItems+1),
+      solutionSet   = [];
+
+  // Setup matrices
+  for(idxItem = 0; idxItem < numItems + 1; idxItem++){
+    weightMatrix[idxItem] = new Array(capacity+1);
+    keepMatrix[idxItem]   = new Array(capacity+1);
+  }
+
+  // Build weightMatrix from [0][0] -> [numItems-1][capacity-1]
+  for (idxItem = 0; idxItem <= numItems; idxItem++){
+    for (idxWeight = 0; idxWeight <= capacity; idxWeight++){
+
+      // Fill top row and left column with zeros
+      if (idxItem === 0 || idxWeight === 0){
+        weightMatrix[idxItem][idxWeight] = 0;
+      }
+
+      // If item will fit, decide if there's greater value in keeping it,
+      // or leaving it
+      else if (items[idxItem-1].w <= idxWeight){
+        newMax = items[idxItem-1].b + weightMatrix[idxItem-1][idxWeight-items[idxItem-1].w];
+        oldMax = weightMatrix[idxItem-1][idxWeight];
+
+        // Update the matrices
+        if(newMax > oldMax){ 
+          weightMatrix[idxItem][idxWeight]  = newMax;
+          keepMatrix[idxItem][idxWeight]    = 1;
+        }
+        else{
+          weightMatrix[idxItem][idxWeight]  = oldMax; 
+          keepMatrix[idxItem][idxWeight]    = 0;
+        }
+      }
+
+      // Else, item can't fit; value and weight are the same as before
+      else{
+        weightMatrix[idxItem][idxWeight] = weightMatrix[idxItem-1][idxWeight];
+      }
+    }
+  }
+
+  // Traverse through keepMatrix ([numItems][capacity] -> [1][?])
+  // to create solutionSet
+  idxWeight = capacity;
+  idxItem   = numItems;
+  for(idxItem; idxItem > 0; idxItem--){
+    if(keepMatrix[idxItem][idxWeight] === 1){
+      solutionSet.push(items[idxItem - 1]);
+      idxWeight = idxWeight - items[idxItem - 1].w;
+    }
+  }
+  return {"maxValue": weightMatrix[numItems][capacity], "set": solutionSet};
+}
+
+function predicateBy(prop){
+   return function(a,b){
+      if( a[prop] > b[prop]){
+          return 1;
+      }else if( a[prop] < b[prop] ){
+          return -1;
+      }
+      return 0;
+   }
+}
+</script>
